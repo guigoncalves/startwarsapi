@@ -29,7 +29,7 @@ public class PlanetController {
     private StarwarsApiService apiService;
 
     @PostMapping("/planets")
-    public ResponseEntity createPlanet(@RequestBody Planet planetRequest) throws Exception {
+    public ResponseEntity createPlanet(@Valid @RequestBody Planet planetRequest) throws Exception {
         Planet planet = planetService.createPlanet(planetRequest);
 
         URI location = ServletUriComponentsBuilder
@@ -56,7 +56,7 @@ public class PlanetController {
     }
 
     @GetMapping("/planets/{id}")
-    public Planet findByName(@Valid @PathVariable Long id) {
+    public Planet findById(@Valid @PathVariable Long id) {
         return planetRepository.findById(id).orElseThrow(
                 () ->  new ResourceNotFoundException("Planet","id", id)
         );

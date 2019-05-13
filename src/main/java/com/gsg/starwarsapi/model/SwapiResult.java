@@ -24,4 +24,11 @@ public class SwapiResult {
         this.results = results;
     }
 
+    @Override
+    public String toString() {
+        return "SwapiResult{" +
+                "count=" + count +
+                ", results=" + results +
+                '}';
+    }
 }

@@ -12,11 +12,7 @@ public class StarwarsapiApplication {
 
 	@Bean
 	public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder) {
-		ClientHttpRequestInterceptor interceptor = (request, body, execution) -> {
-			request.getHeaders().add("user-agent", "spring");
-			return execution.execute(request, body);
-		};
-		return restTemplateBuilder.additionalInterceptors(interceptor).build();
+		return new RestTemplate();
 	}
 
 	public static void main(String[] args) {
